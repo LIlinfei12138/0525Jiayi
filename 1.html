@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="./jquery-3.4.1.min.js"></script>
+		<style>
+			body {
+				margin: 0;
+			}
+
+			ul {
+				margin: 0;
+				padding: 0;
+			}
+
+			ul,
+			li {
+				list-style: none;
+			}
+
+			a {
+				text-decoration: none;
+			}
+
+			/* 导航栏 */
+			header {
+				display: flex;
+				height: 60px;
+				justify-content: space-between;
+				background-color: white;
+			}
+
+			.index {
+				padding-left: 20px;
+				line-height: 60px;
+			}
+
+			.icon {
+				width: 38px;
+			}
+
+			.index>span {
+				color: #f50514;
+				font-size: 22px;
+				font-weight: bold;
+			}
+
+			.index>* {
+				vertical-align: middle;
+			}
+
+			/* 菜单栏中部 */
+			.nav-mid>ul {
+				letter-spacing: -1em;
+			}
+
+			.nav-mid>ul>li {
+				display: inline-block;
+				height: 60px;
+				padding-left: 20px;
+				padding-right: 20px;
+				line-height: 60px;
+				transition-duration: 0.2s;
+				border-bottom: 2px solid transparent;
+				letter-spacing: normal;
+				cursor: pointer;
+				box-sizing: border-box;
+			}
+
+			.nav-mid>ul>li:hover {
+				border-bottom: 2px solid #f50514;
+			}
+
+			.nav-mid>ul>li>a {
+				display: block;
+				font-size: 14px;
+				color: black;
+			}
+
+			.New {
+				margin-left: 10px;
+				font-size: 10px;
+				border: 1px solid;
+				border-radius: 20%;
+			}
+
+			/* 导航栏右部 */
+			.nav-right>div {
+				position: relative;
+				display: inline-block;
+				width: 60px;
+				height: 60px;
+				text-align: center;
+				line-height: 60px;
+			}
+
+			.nav-right>div>img {
+				position: absolute;
+				width: 25px;
+				height: 25px;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			}
+
+			.bigimg {
+				width: 100%;
+				height: 300px;
+			}
+
+			/* 中间内容 */
+			.first-content {
+				position: relative;
+				width: 1350px;
+				height: 300px;
+				color: white;
+				background-image: url('./img/151bfc961009e115533581b61e147884.jpg');
+				background-position-x: -610px;
+			}
+
+			.content-position {
+				position: absolute;
+				top: 50%;
+				left: 20%;
+				transform: translateY(-50%);
+			}
+
+			.first-content>div>.little-title {
+				font-size: 24px;
+				margin-top: 0;
+			}
+
+			.first-content>div>div {
+				margin-top: 24px;
+			}
+
+			.first-content>div>div>a {
+				color: white;
+			}
+
+			.hover-a>a {
+				color: black;
+			}
+			
+			.hover-a>a:hover {
+				color: #b8b8b8;
+				text-decoration: underline;
+			}
+
+			.hover-a>a:hover>.hover-margin-left {
+				margin-left: 10px;
+			}
+
+			.right-jiantou {
+				width: 15px;
+				margin-left: 5px;
+				vertical-align: middle;
+				transition-duration: 0.5s;
+			}
+
+			/* 第二部分 */
+			.second-content {
+				position: relative;
+				height: 680px;
+				background-image: url('./img/second-back.png');
+			}
+
+			.sj-title {
+				margin-top: 0;
+				margin-bottom: 5px;
+				font-size: 40px;
+				font-weight: normal;
+			}
+
+			.parameter {
+				font-size: 18px;
+			}
+
+			.money {
+				margin-top: 20px;
+				margin-bottom: 20px;
+				font-size: 18px;
+			}
+
+			.buy-btn {
+				display: inline-block;
+				padding: 0 20px 0 20px;
+				line-height: 40px;
+				color: black;
+				border: 2px solid black;
+				border-radius: 5%;
+				/* transition-duration: 0.3s; */
+				box-sizing: border-box;
+				border-image-outset: 1;
+				box-sizing: content-box;
+				/* box-sizing: border-box; */
+				/* border-style:inset; */
+			}
+
+			.buy-btn:hover {
+				box-sizing: border-box;
+				/* outline:4px solid black; */
+
+				/* border-top: 3px solid black; */
+				/* border-bottom: 3px solid black; */
+				/* border-style:inset; */
+				/* border:3px solid black; */
+				/* border-image-outset:1; */
+				border: 3px solid black;
+			}
+
+			.second-content>* {
+				color: black;
+			}
+
+			.second-content>div>.buy-btn {
+				margin-bottom: 10px;
+			}
+
+			/* 第三部分 */
+			.third-content {
+				position: relative;
+				height: 680px;
+				background-image: url('./img/8Pro-CN3color_large_1xpng_.jpg');
+				background-size: 192%;
+				background-repeat: no-repeat;
+				background-position-x: -320px;
+			}
+
+			.content-center-position {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				text-align: center;
+			}
+
+			.third-content>div>.buy-btn {
+				margin-bottom: 10px;
+			}
+
+			.buy-box {
+				height: 50px;
+			}
+
+			.hover-a>a>span {
+				margin-right: 5px;
+			}
+
+			/* 四块 */
+			.four-data {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: space-between;
+				padding: 20px;
+				text-align: center;
+			}
+
+			.four-data>div {
+				position: relative;
+				display: inline-block;
+				width: 645px;
+				height: 500px;
+				overflow: hidden;
+				margin-bottom: 20px;
+				background-size: 191%;
+				background-repeat: no-repeat;
+				background-position-x: 50%;
+				cursor: pointer;
+				transition-duration: 0.5s;
+			}
+
+			.four-data>div>a {
+				display: block;
+				width: 100%;
+				height: 100%;
+				color: black;
+				transition-duration:0.6s;
+			}
+			.four-data>div>a.cur{
+				transform:translateY(100px);
+				opacity:0;
+			}
+			.four-data>div>img {
+				position: absolute;
+				top: 0;
+				left: 0;
+				transform: translate(-37%, -27%) scale(0.5);
+				z-index: -1;
+				transition-duration: 0.5s;
+			}
+			.four-data>div>img.cur{
+				transform: translate(-37%, -23%) scale(0.55);
+				opacity:.5;
+			}
+			.four-data>div:hover {
+				filter: brightness(50%);
+			}
+
+			.four-data>div:hover>img {
+				transform: translate(-37%, -27%) scale(0.55);
+			}
+
+			.four-data>div:hover span {
+				text-decoration: underline;
+			}
+
+			.four-data>div:hover .hover-margin-left {
+				margin-left: 10px;
+			}
+
+			.four-title {
+				font-size: 24px;
+			}
+
+			/* 第五块 */
+			.fifth-content {
+				position: relative;
+				height: 720px;
+				overflow: hidden;
+			}
+
+			.fifth-content>img {
+				width: 100%;
+				z-index: -1;
+			}
+
+			.fifth-content>div>p {
+				font-size: 35px;
+				color: white;
+			}
+
+			.fifth-content>div>div>a {
+				border: 2px solid white;
+				color: white;
+			}
+
+			/* 更多 */
+			.more {
+				padding: 50px 0px 50px 0;
+				background-color: #F6F6F6;
+			}
+
+			.more>div {
+				width: 920px;
+				margin: 0 auto;
+			}
+
+			.more>div>div {
+				display: inline-block;
+				width: 276px;
+				cursor: pointer;
+				margin: 0 13px;
+			}
+
+			.more-demo>.img-box {
+				width: 276px;
+				height: 160px;
+				overflow: hidden;
+			}
+
+			.more-demo>.img-box>img {
+				transition-duration: 0.3s;
+				width: 100%;
+			}
+
+			.more-demo>.font-content {
+				font-size: 18px;
+				display: inline-block;
+				background-color: white;
+				padding: 4px 20px 20px 20px;
+			}
+
+			.small-title {
+				font-size: 16px;
+				color: #666;
+			}
+
+			.font-content>.hover-a>a {
+				font-size: 16px;
+				color: #09c;
+			}
+
+			.more-demo:hover .img-box>img {
+				transform: scale(1.1);
+			}
+
+			.more-demo>:hover .hover-a>a {
+				text-decoration: underline;
+			}
+
+			.more-demo>:hover .hover-margin-left {
+				margin-left: 10px;
+			}
+
+			/* 服务 */
+			.service {
+				padding: 40px 20px 0;
+			}
+
+			.service-box {
+				width: 1200px;
+				margin: 0 auto;
+				overflow: hidden;
+			}
+
+			.service-demo {
+				float: left;
+				display: inline-block;
+				text-align: center;
+				padding-bottom: 40px;
+				color: black;
+				margin: 0 99px;
+			}
+
+			.service-demo>img {
+				width: 42px;
+				height: 42px;
+			}
+
+			.service-demo>p {
+				margin: 20px 0px 0px 0px;
+			}
+
+			/* 产品 */
+			.parts {
+				border-top: 1px solid rgba(0, 0, 0, .2);
+				background-color: white;
+			}
+
+			.parts-box {
+				width: 1200px;
+				margin: 0 auto;
+				padding: 20px 0px 20px 0px;
+			}
+
+			.parts-demo {
+				display: inline-block;
+				width: 215px;
+				padding-left: 20px;
+				vertical-align: top;
+			}
+
+			.parts-demo>li {
+				padding: 10px 0px 10px 0px;
+			}
+
+			.parts-demo>.first-title {
+				height: 50px;
+				line-height: 50px;
+			}
+
+			.parts-demo>li>a {
+				color: #828282;
+			}
+
+			.parts-demo>li:hover a {
+				color: black;
+			}
+
+			/* 联系方式 */
+			.contact {
+				display: flex;
+				width: 1160px;
+				margin: 40px auto 0px auto;
+				justify-content: space-between;
+				align-items: center;
+				border-right: 1px solid rgba(0, 0, 0, .2);
+			}
+
+			.contact-left {
+				font-size: 14px;
+			}
+
+			.contact-right {
+				display: flex;
+				align-items: center;
+			}
+
+			.contact-right>* {
+				margin-left: 20px;
+			}
+
+			.contact-right>img {
+				width: 21px;
+			}
+
+			.contact-time {
+				font-size: 14px;
+				padding: 0 22px 0px 14px;
+				border-right: 1px solid rgba(0, 0, 0, .2);
+			}
+
+			.blue-font {
+				color: #09c;
+			}
+
+			.contact-right>.wechat {
+				width: 30px;
+			}
+
+			.contact-right>.weibo {
+				width: 30px;
+			}
+			/* 脚注 */
+			footer{
+				border-top:1px solid rgba(0, 0, 0, .2);
+				padding-bottom:20px;
+			}
+			.footer-box {
+				width: 1160px;
+				margin: 0 auto;
+			}
+			.first-line{
+				display:flex;
+				padding-top:20px;
+				justify-content:space-between;
+			}
+			.first-left>img{
+				width:24px;
+				height:16px;
+				vertical-align:middle;
+			}
+			.first-left>span{
+				vertical-align:middle;
+			}
+			.first-right{
+				font-size:12px;
+				line-height:23px;
+			}
+			.first-right li{
+				display:inline-block;
+				padding:0 22px;
+				border-right:1px solid rgba(0, 0, 0, .2);
+			}
+			.first-right li:last-child{
+				border-right:0;
+			}
+			.first-right li>a{
+				color:black;
+			}
+			.second-line{
+				display:flex;
+				font-size:12px;
+				padding-top:40px;
+				justify-content:space-between;
+				color:#999;
+			}
+			.hover-black{
+				color:#999;
+			}
+			.hover-black:hover{
+				color:black;
+			}
+			.second-right>img{
+				width:83px;
+				height:30px;
+			}
+			/* 二维码 */
+			.circle-square{
+				position:fixed;
+				right:20px;
+				bottom::;0px;
+				width:60px;
+				height:60px;
+			}
+
+		</style>
+	</head>
+	<body>
+		<!-- 头部导航栏 -->
+		<header>
+			<!-- 点击到首页 -->
+			<div class="nav-left index">
+				<img class="icon" src="./img/oneplus.png" />
+				<span>ONEPLUS</span>
+			</div>
+			<!-- 中间 -->
+			<div class="nav-mid">
+				<ul>
+					<li><a href="#">8&nbsp;系列<span class="New">New</span></a></li>
+					<li><a href="#">7T系列</a></li>
+					<li><a href="#">商城</a></li>
+					<li><a href="#">品牌</a></li>
+					<li><a href="#">服务</a></li>
+					<li><a href="#">论坛</a></li>
+					<li><a href="#">零售店</a></li>
+				</ul>
+			</div>
+			<!-- 右边用户部分 -->
+			<div class="nav-right">
+				<div>
+					<img src="./img/my.png" />
+				</div>
+				<div>
+					<img src="./img/shopbag.png" />
+				</div>
+			</div>
+		</header>
+		<!-- 中间内容 -->
+		<div class="big-content">
+			<section class="first-content">
+
+				<!-- <img class="bigimg" src="./img/151bfc961009e115533581b61e147884.jpg" /> -->
+				<div class="content-position">
+					<p class="little-title">永不言弃，追求极致。</p>
+					<div>欢迎小罗伯特·唐尼，<br />加入 OnePlus 大家庭。</div>
+					<div class="hover-a"><a href="#">前往了解<img class="right-jiantou hover-margin-left" src="./img/right-jiantou.png" /></a></div>
+				</div>
+			</section>
+			<section class="second-content">
+				<div class="content-position">
+					<h3 class="sj-title">OnePlus 8</h3>
+					<div class="parameter">90Hz 柔性屏 | 骁龙 865 | 180g 轻薄</div>
+					<div class="money">￥3999 起</div>
+					<div class="buy-box">
+						<a class="buy-btn" href="#">立即购买</a>
+					</div>
+					<div class="hover-a"><a href="#">了解产品<img class="right-jiantou hover-margin-left" src="./img/black-right-jiantou.png" /></a></div>
+				</div>
+			</section>
+			<section class="third-content">
+				<div class="content-center-position">
+					<h3 class="sj-title">OnePlus 8</h3>
+					<div class="parameter">90Hz 柔性屏 | 骁龙 865 | 180g 轻薄</div>
+					<div class="money">￥3999 起</div>
+					<div class="buy-box">
+						<a href="#" class="buy-btn">立即购买</a>
+					</div>
+					<div class="hover-a">
+						<a href="#">
+							<span>了解产品</span><img class="right-jiantou hover-margin-left" src="./img/black-right-jiantou.png" />
+						</a>
+					</div>
+				</div>
+			</section>
+			<section class="four-data">
+				<div>
+					<a href="#">
+						<p class="four-title">以旧换新</p>
+						<div>最高额外外贴&nbsp;1100元</div>
+					</a>
+					<img src="./img/Trade-in-Tile_large.jpg" />
+				</div>
+				<div>
+					<a href="#">
+						<p class="four-title">分期乐免息购</p>
+						<div>享受免息，即刻开始</div>
+					</a>
+					<img src="./img/fenqile_l.jpg" />
+				</div>
+				<div>
+					<a href="#">
+						<p class="four-title">一加云耳 Z</p>
+						<div class="hover-a"><span>了解产品</span><img class="right-jiantou hover-margin-left" src="./img/black-right-jiantou.png" /></div>
+					</a>
+					<img src="./img/BWZ-Tile_large.jpg" />
+				</div>
+				<div>
+					<a href="#">
+						<p class="four-title">零售店体验与购买</p>
+						<div class="hover-a"><span>了解更多</span><img class="right-jiantou hover-margin-left" src="./img/black-right-jiantou.png" /></div>
+					</a>
+					<img src="./img/store_l.jpg" />
+				</div>
+			</section>
+			<section class="fifth-content">
+				<div class="content-center-position">
+					<p>Shot on OnePlus</p>
+					<div class="buy-box">
+						<a class="buy-btn" href="#">立即购买</a>
+					</div>
+				</div>
+				<img src="./img/1-m00-10-c3-rb8lb15bmfoawpl6ac9ponurnh4863_1920_0.jpg" />
+			</section>
+		</div>
+		<nav class="more">
+			<div>
+				<div class="more-demo">
+					<div class="img-box">
+						<img src="./img/first.jpg" />
+					</div>
+					<div class="font-content">
+						<p class="small-title">产品</p>
+						<p class="small-subheading">OnePlus 8 系列来了，肉眼可见的出类拔萃。</p>
+						<div class="hover-a">
+							<a href="#">
+								了解更多<img class="right-jiantou hover-margin-left" src="./img/blue-right-jiantou.png" />
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="more-demo">
+					<div class="img-box">
+						<img src="./img/second.jpg" />
+					</div>
+					<div class="font-content">
+						<p class="small-title">口碑</p>
+						<p class="small-subheading">OnePlus 8 怎么样，听听首批用户怎么说。</p>
+						<div class="hover-a">
+							<a href="#">
+								了解更多<img class="right-jiantou hover-margin-left" src="./img/blue-right-jiantou.png" />
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="more-demo">
+					<div class="img-box">
+						<img src="./img/third.jpg" />
+					</div>
+					<div class="font-content">
+						<p class="small-title">活动</p>
+						<p class="small-subheading">秀出你的 OnePlus 8 系列，花式开箱赢新机。</p>
+						<div class="hover-a">
+							<a href="#">
+								了解更多<img class="right-jiantou hover-margin-left" src="./img/blue-right-jiantou.png" />
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</nav>
+		<!-- 服务 -->
+		<section class="service">
+			<div class="service-box">
+				<a href="#" class="service-demo">
+					<img src="./img/icon1.png" />
+					<p>7天无理由退货</p>
+				</a>
+				<a href="#" class="service-demo">
+					<img src="./img/icon2.png" />
+					<p>15天退货保障</p>
+				</a>
+				<a href="#" class="service-demo">
+					<img src="./img/icon3.png" />
+					<p>30天换货保障</p>
+				</a>
+				<a href="#" class="service-demo">
+					<img src="./img/icon4.png" />
+					<p>99元全场包邮</p>
+				</a>
+			</div>
+		</section>
+		<div class="parts">
+			<div class="parts-box">
+				<ul class="parts-demo">
+					<li class="first-title">一加产品</li>
+					<li><a href="#">OnePlus 8 Pro</a></li>
+					<li><a href="#">OnePlus 8</a></li>
+					<li><a href="#">OnePlus 7T Pro</a></li>
+					<li><a href="#">OnePlus 7T</a></li>
+					<li><a href="#">OnePlus 7 Pro</a></li>
+					<li><a href="#">OnePlus 7</a></li>
+				</ul>
+				<ul class="parts-demo">
+					<li class="first-title">配件</li>
+					<li><a href="#">耳机</a></li>
+					<li><a href="#">壳/膜</a></li>
+					<li><a href="#">适配器/数据线</a></li>
+					<li><a href="#">套装</a></li>
+					<li><a href="#">生活馆</a></li>
+				</ul>
+				<ul class="parts-demo">
+					<li class="first-title">热门活动</li>
+					<li><a href="#">以旧换新</a></li>
+					<li><a href="#">Shot on OnePlus</a></li>
+					<li><a href="#">邀请码购买o</a></li>
+					<li><a href="#">教育优惠</a></li>
+				</ul>
+				<ul class="parts-demo">
+					<li class="first-title">关于加一</li>
+					<li><a href="#">了解加一</a></li>
+					<li><a href="#">加入加一</a></li>
+					<li><a href="#">可持续发展</a></li>
+					<li><a href="#">HydrogenOS</a></li>
+					<li><a href="#">云服务</a></li>
+					<li><a href="#">预置应用公示</a></li>
+				</ul>
+				<ul class="parts-demo">
+					<li class="first-title">服务支持</li>
+					<li><a href="#">购买帮助</a></li>
+					<li><a href="#">购买保险</a></li>
+					<li><a href="#">用户手册</a></li>
+					<li><a href="#">寄修服务</a></li>
+					<li><a href="#">服务中心</a></li>
+					<li><a href="#">联系我们</a></li>
+				</ul>
+				<div class="contact">
+					<div class="contact-left">更多选购方式,请<a class="blue-font" href="#">查找零售店</a>或<a class="blue-font" href="#">一加微信官方商城</a></div>
+					<div class="contact-right">
+						<img src="./img/phone.png" />
+						<span class="blue-font">400 - 888 - 1111</span>
+						<img src="./img/dialog.png" />
+						<span class="blue-font">在线客服</span>
+						<div class="contact-time">周一至周日 9:00 - 22:00</div>
+						<img class="wechat" src="./img/wechat.png" />
+						<img class="weibo" src="./img/weibo.png" />
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer>
+			<div class="footer-box">
+				<div class="first-line">
+					<div class="first-left">
+						<img src="./img/flag.png" />
+						<span>中国大陆 ( 简体中文 / CNY )</span>
+					</div>
+					<div class="first-right">
+						<ul>
+							<li><a href="#">隐私政策</a></li>
+							<li><a href="#">用户协议</a></li>
+							<li><a href="#">竞赛规则</a></li>
+							<li><a href="#">知识产权政策</a></li>
+							<li><a href="#">安全问题反馈</a></li>
+							<li><a href="#">站点地图</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="second-line">
+					<div class="second-left">
+						<div>粤ICP备<a class="hover-black" href="#">13080605</a>号 | 备案主体编号: 44201910955995</div>
+						<div><img src="./img/badge.png" /><a href="#" class="hover-black">粤公网安备 44030402001407号</a></div>
+					</div>
+					<div class="second-right">
+						<img src="./img/51638e8fd2593c56856278feb794b506.png" />
+						<img src="./img/cnnic.png"/>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<img class="circle-square" src="./img/bb8fbaf7c2952907feb0f61df71f7724.png" />
+		<script src="./index.js"></script>
+	</body>
+</html>
