@@ -16,7 +16,7 @@ $(window).scroll(function(){
 		// 图片
 		$firstTwoTagImg.addClass("cur");
 		$thirdFourthTagImg.addClass("cur");
-	}else if ($scrollTop >=1900){
+	}else if ($scrollTop >=1800){
 		// a标签
 		$thirdFourthTagA.removeClass("cur");
 		// 图片

@@ -3,128 +3,37 @@
 	<head>
 		<meta charset="utf-8">
 		<title></title>
-	<script src="../../jquery/3/jquery-3.4.1.js"></script>
-	<style>
-		div{
-			width:200px;
-			height:200px;
-			background-color:red;
-			transition-duration:0.6s;
-		}
-		.cur{
-			transform:translateY(200px);
-			opacity:0;
-		}
-	</style>
-	</head>
-	<body>
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<div></div>
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-	</body>
-	<script>
-		$(window).scroll(function(){
-			$Div = $("div");
-			$scrollTop = $(window).scrollTop();
-			if ($scrollTop >= 400) {
-				$Div.addClass("cur");
-			}else{
-				$Div.removeClass("cur");
+		<script src="../../jquery/3/jquery-3.4.1.js"></script>
+		<style>
+			body {
+				margin: 0;
 			}
-		});
-	</script>
+			.father{
+/* 				display:flex;
+				justify-content:space-between; */
+				/* height:60px; */
+				border:1px solid;
+			}
+			.father>div{
+				float:left;
+				width:100px;
+				height:60px;
+				background-color:red;
+			}
+			.father::after{
+				content:'';
+				display:block;
+				clear:both;
+				width:0;
+				height:0;
+			}
+		</style>
+	<body>
+	</head>
+		<div class="father">
+			<div>1111</div>
+			<div>2222</div>
+			<div class="last">3333</div>
+		</div>
+	</body>
 </html>

@@ -86,6 +86,9 @@
 			}
 
 			/* 导航栏右部 */
+			.nav-right{
+				letter-spacing:-1em;
+			}
 			.nav-right>div {
 				position: relative;
 				display: inline-block;
@@ -94,8 +97,17 @@
 				text-align: center;
 				line-height: 60px;
 			}
-
-			.nav-right>div>img {
+			.nav-right>div>a{
+				display:block;
+				height:100%;
+				transition-duration:0.2s;
+				box-sizing: border-box;
+				border-bottom:2px solid transparent;
+			}
+			.nav-right>div>a:hover{
+				border-bottom: 2px solid #f50514;
+			}
+			.nav-right>div>a>img {
 				position: absolute;
 				width: 25px;
 				height: 25px;
@@ -269,14 +281,19 @@
 				background-position-x: 50%;
 				cursor: pointer;
 				transition-duration: 0.5s;
+				background-color:#F9F9F9;
 			}
 
 			.four-data>div>a {
+				position:absolute;
+				top:0;
+				left:0;
 				display: block;
 				width: 100%;
 				height: 100%;
 				color: black;
 				transition-duration:0.6s;
+				z-index:999;
 			}
 			.four-data>div>a.cur{
 				transform:translateY(100px);
@@ -287,12 +304,12 @@
 				top: 0;
 				left: 0;
 				transform: translate(-37%, -27%) scale(0.5);
-				z-index: -1;
+				z-index: 0;
 				transition-duration: 0.5s;
 			}
 			.four-data>div>img.cur{
 				transform: translate(-37%, -23%) scale(0.55);
-				opacity:.5;
+				opacity:0;
 			}
 			.four-data>div:hover {
 				filter: brightness(50%);
@@ -474,6 +491,7 @@
 			}
 
 			.contact-right {
+				position:relative;
 				display: flex;
 				align-items: center;
 			}
@@ -496,12 +514,37 @@
 				color: #09c;
 			}
 
-			.contact-right>.wechat {
+			.wechat,.weibo{
 				width: 30px;
+				height:30px;
+				background-size:100%;
+				cursor:pointer;
 			}
-
-			.contact-right>.weibo {
-				width: 30px;
+			.wechat{
+				background-image:url('./img/wechat.png');
+			}
+			.weibo{
+				background-image:url('./img/weibo.png');
+			}
+			.wechat:hover{
+				background-image:url('./img/wechat_dark.png');
+			}
+			.weibo:hover{
+				background-image:url('./img/weibo_dark.png');
+			}
+			.contact-right>.wechat-QRcode{
+				position: absolute;
+				display:none;
+				width: 120px;
+				height: 120px;
+				top: -120px;
+				right: 10px;
+			}
+			.wechat:hover ~.wechat-QRcode{
+				display:inline-block;
+			}
+			.wechat-QRcode:hover{
+				display:inline-block;	
 			}
 			/* 脚注 */
 			footer{
@@ -591,10 +634,10 @@
 			<!-- 右边用户部分 -->
 			<div class="nav-right">
 				<div>
-					<img src="./img/my.png" />
+					<a href="#"><img src="./img/my.png" /></a>
 				</div>
 				<div>
-					<img src="./img/shopbag.png" />
+					<a href="#"><img src="./img/shopbag.png" /></a>
 				</div>
 			</div>
 		</header>
@@ -794,8 +837,9 @@
 						<img src="./img/dialog.png" />
 						<span class="blue-font">在线客服</span>
 						<div class="contact-time">周一至周日 9:00 - 22:00</div>
-						<img class="wechat" src="./img/wechat.png" />
-						<img class="weibo" src="./img/weibo.png" />
+						<div class="wechat"></div>
+						<div class="weibo"></div>
+						<img class="wechat-QRcode" src="./img/4a29e5bdf6e65e4ad9d7d7810d599a2f.jpg" />
 					</div>
 				</div>
 			</div>
